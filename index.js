@@ -14,6 +14,7 @@ Qiwi.prototype._makeRequest = function(params, callback){
   const options = {
   	url    : params.url, 
   	method : params.method, 
+  	qs     : params.qs || null,
   	headers: this.headers
   }; 
 
@@ -22,7 +23,7 @@ Qiwi.prototype._makeRequest = function(params, callback){
   		body: JSON.stringify(params.data)
   	};
   }  
-  
+
   request(options, function(err, response, body){
   	if( err ) return callback(err, null); 
   	
@@ -53,5 +54,22 @@ Qiwi.prototype.getProfile = function(){
     }); 
   }); 
 }; 
+
+Qiwi.prototype.getPaymentHistory = function(walletId, options){
+  const self = this; 
+  const query = options || {}; 
+  query.rows = query.rows || 50; 
+
+  return new Promise(function(resolve, reject){
+  	self._makeRequest({
+      url: 'https://edge.qiwi.com/payment-history/v1/persons/' + walletId + '/payments', 
+      method: 'GET',
+      qs: query
+  	}, function(err, response){
+      if( err ) return reject(err); 
+      resolve(response); 
+    })
+  })
+}
 
 module.exports = Qiwi; 

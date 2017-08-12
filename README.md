@@ -13,3 +13,14 @@ qiwi
   .then(profile => console.log(profile))
   .catch(err => console.log(err)); 
 ```
+
+### getPaymentHistory
+
+```js
+
+qiwi
+  .getProfile()
+  .then(profile => qiwi.getPaymentHistory(profile.contractInfo.contractId))
+  .then(history => console.log(history))
+
+```
