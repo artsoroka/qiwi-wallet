@@ -1,0 +1,28 @@
+{
+  "name": "qiwi-wallet",
+  "version": "0.0.1",
+  "description": "Qiwi wallet API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artsoroka/qiwi-wallet.git"
+  },
+  "keywords": [
+    "qiwi",
+    "wallet",
+    "api"
+  ],
+  "author": "Artem Soroka <art.soroka@yahoo.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/artsoroka/qiwi-api/issues"
+  },
+  "homepage": "https://github.com/artsoroka/qiwi-api#readme",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "request": "^2.81.0"
+  }
+}
